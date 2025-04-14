@@ -9,8 +9,7 @@ terraform {
 
 provider "aws" {
      # Configuration options
-  region = var.region
-  
+  region = var.region  
 }
 
 resource "random_id" "random_id" {
