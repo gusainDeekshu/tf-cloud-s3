@@ -18,14 +18,9 @@ resource "random_id" "random_id" {
 }
 
 resource "aws_s3_bucket" "demo-bucket" {
-  bucket = "bucket${random_id.random_id.hex}"
+  bucket = "terraform-cloud-bucket${random_id.random_id.hex}"
 }
 
-resource "aws_s3_object" "bucket_data" {
-    bucket = aws_s3_bucket.demo-bucket.bucket
-  source = "./myfile.txt"
-  key = "mydata.txt"
-}
 
 output "name" {
   value = random_id.random_id.b64_url
